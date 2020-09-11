@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+
 import static androidx.core.content.ContextCompat.getSystemService;
 
 public class Fragment_Buttons extends Fragment  {
@@ -27,6 +28,7 @@ public class Fragment_Buttons extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_buttons,null);
+        myClipboard = (ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
         Button button;
         button = (Button) v.findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
@@ -97,9 +99,8 @@ public class Fragment_Buttons extends Fragment  {
         button = (Button) v.findViewById(R.id.buttonCopy);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                myVM.Copy(myClipboard);
 
-               // ClipData clip = android.content.ClipData.newPlainText("TAG",myVM.getNumber().toString());
-              //  myClipboard.setPrimaryClip(clip);
             }
         });
 
@@ -110,7 +111,7 @@ public class Fragment_Buttons extends Fragment  {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         myVM = ViewModelProviders.of(getActivity()).get(LogicVM.class);
-       // myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+
     }
 
     @Override

@@ -12,7 +12,6 @@
         class="com.example.converter.Fragment_Text_View"
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,15 +19,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout="@layout/fragment_text_view"></fragment>
+        tools:layout="@layout/fragment_text_view" />
 
     <fragment
         android:id="@+id/fragment2"
         class="com.example.converter.Fragment_Buttons"
         android:layout_width="match_parent"
         android:layout_height="692dp"
-        android:layout_below="@+id/TextView"
-        android:layout_alignParentBottom="true"
         android:layout_marginTop="0dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,6 +33,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout="@layout/fragment_buttons"></fragment>
+        tools:layout="@layout/fragment_buttons" />
 
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,7 +22,16 @@ public class Fragment_Text_View extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_text_view,null);
+        View v =  inflater.inflate(R.layout.fragment_text_view,null);
+        Button button = (Button) v.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                SettingsDialog alert = new SettingsDialog(getActivity());
+                alert.showDialog(getActivity(), "Error de conexión al servidor");
+
+            }
+        });
+        return v;
     }
 
     @Override
@@ -52,6 +62,7 @@ public class Fragment_Text_View extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
     }
 
     @Override
