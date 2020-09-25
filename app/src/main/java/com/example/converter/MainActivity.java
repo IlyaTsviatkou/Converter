@@ -1,14 +1,8 @@
 package com.example.converter;
 
-import android.app.FragmentTransaction;
-import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 

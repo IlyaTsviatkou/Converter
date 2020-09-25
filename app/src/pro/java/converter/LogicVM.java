@@ -1,16 +1,13 @@
-package com.example.converter;
+package converter;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.content.Context;
-import android.util.Log;
-import android.widget.TextView;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import static androidx.core.content.ContextCompat.getSystemService;
+import com.example.converter.Converter;
 
 public class LogicVM extends ViewModel {
     private Converter conv = new Converter();
@@ -83,7 +80,7 @@ public class LogicVM extends ViewModel {
 
     public void Copy(ClipboardManager manager)
     {
-            ClipData clip = android.content.ClipData.newPlainText("TAG",liveData.getValue());
+            ClipData clip = ClipData.newPlainText("TAG",liveData.getValue());
             manager.setPrimaryClip(clip);
     }
 
@@ -109,6 +106,14 @@ public class LogicVM extends ViewModel {
     public void setLiveDataUnit(int a)
     {
         liveDataUnit.postValue(a);
+    }
+    public void swapData(String a)
+    {
+        liveData.postValue(a);
+        liveData2.postValue(conv.Convert(liveDataUnit.getValue(),
+                liveDataUnitFrom.getValue(),
+                liveDataUnitTo.getValue(),
+                Float.parseFloat(a)));
     }
 
     public void setLiveDataUnitFrom(int a)

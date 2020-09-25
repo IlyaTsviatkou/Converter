@@ -26,6 +26,19 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
 
     }
+    flavorDimensions 'type'
+    productFlavors {
+        basic {
+            dimension = 'type'
+            applicationIdSuffix ".basic"
+            versionNameSuffix "-basic"
+        }
+        pro {
+            dimension = 'type'
+            applicationIdSuffix ".pro"
+            versionNameSuffix "-pro"
+        }
+    }
 }
 
 dependencies {
