@@ -1,6 +1,16 @@
 apply plugin: 'com.android.application'
 
+apply from: '../git.gradle'
+def versionArray = getArray()
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\ilyatsv\\keystore\\androidkey.jks')
+            storePassword 'Ii07022001'
+            keyAlias = 'key0'
+            keyPassword 'Ii07022001'
+        }
+    }
     compileSdkVersion 28
     buildToolsVersion "29.0.2"
 
@@ -8,10 +18,11 @@ android {
         applicationId "com.example.converter"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode generateVersionCode(versionArray)
+        versionName "${versionArray[0]}.${versionArray[1]}.${versionArray[2]}"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
     }
 
     buildTypes {

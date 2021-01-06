@@ -17,14 +17,15 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.converter.R;
 
 public class Fragment_Buttons extends Fragment  {
-
+    public ClipboardManager myClipboard;
+    SomeEventListener sel;
     private LogicVM myVM;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_buttons,null);
-
+        myClipboard = (ClipboardManager)getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
         Button button;
         button = (Button) v.findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +93,13 @@ public class Fragment_Buttons extends Fragment  {
                 myVM.setNumber("Back");
             }
         });
+        button = (Button) v.findViewById(R.id.buttonCopy);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                myVM.Copy(myClipboard);
 
+            }
+        });
 
 
         return v;
@@ -128,6 +135,13 @@ public class Fragment_Buttons extends Fragment  {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        try{
+            sel = (SomeEventListener) activity;
+        }
+        catch (ClassCastException e)
+        {
+            throw new ClassCastException(activity.toString() + "must implement SomeEventListener");
+        }
     }
 
 

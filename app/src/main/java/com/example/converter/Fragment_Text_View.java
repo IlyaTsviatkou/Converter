@@ -28,7 +28,7 @@ public class Fragment_Text_View extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 SettingsDialog alert = new SettingsDialog(getActivity());
-                alert.showDialog(getActivity(), "Error de conexión al servidor");
+                alert.showDialog(getActivity(), "");
 
             }
         });
