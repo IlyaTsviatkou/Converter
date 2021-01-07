@@ -17,7 +17,7 @@ public class LogicVM extends ViewModel {
     private final MutableLiveData<Integer> liveDataUnitFrom = new MutableLiveData<>();
     private final MutableLiveData<Integer> liveDataUnitTo = new MutableLiveData<>();
 
-    public float i;
+ 
     public void setNumber(String s) {
 
         if(s.equals("Back"))
