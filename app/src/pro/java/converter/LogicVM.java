@@ -16,7 +16,7 @@ public class LogicVM extends ViewModel {
     private final MutableLiveData<Integer> liveDataUnit = new MutableLiveData<>();
     private final MutableLiveData<Integer> liveDataUnitFrom = new MutableLiveData<>();
     private final MutableLiveData<Integer> liveDataUnitTo = new MutableLiveData<>();
-    public ClipboardManager myClipboard;
+
 
     public float i;
     public void setNumber(String s) {
